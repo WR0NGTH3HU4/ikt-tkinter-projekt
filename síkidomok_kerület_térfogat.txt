@@ -1,0 +1,31 @@
+Háromszög:
+	kerület: a+b+c=2s
+	terület: a*ma/2
+		
+Trapéz:
+	kerület:a+b+c+d
+	terület:a+c/2*m
+
+Paralelogramma:
+	kerület:2*(a+b)
+	terület:a*ma 
+
+Téglalap:
+	kerület:2*(a+b)
+	terület:a*b 
+
+Deltoid:
+	kerület:2*(a+b)
+	terület:e*f/2 
+
+Rombusz:
+	kerület:4*a
+	terület:a*m 
+
+Négyzet:
+	kerület:4*a
+	terület:a*a
+ 
+Kör:
+	kerület:2*r*pi
+	terület:r*r*pi 
