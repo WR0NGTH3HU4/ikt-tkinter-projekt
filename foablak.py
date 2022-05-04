@@ -31,6 +31,19 @@ menubar.add_cascade(label="Alakzatok", menu=file)
 menubar.add_cascade(label="Névjegy", command = rolunk)
 ablak1.config(menu=menubar) 
 #második gomb a menüsávon vége
+
+#szöveg label 
+l = Label(ablak1, text="Rövid használati útmutató: \n A menüsávon található alakzatok gomb alatt kiválaszthatjuk a számítani kívánt alakzatot. Az alakzatra kattintva kiválaszthatjuk, hogy kerületet vagy területet szeretnénk számolni. A rólunk gombra nyomva a keszítőkről kaphat a felhasználó információkat.", wraplength=200)
+l.grid(row = 2,column = 0, pady = 20)
+#szöveg label vége
+
+#kép 
+can1 = Canvas(ablak1, width = 400, height = 100, bg = 'white')
+photo = PhotoImage(file = './a.png')
+item = can1.create_image(80, 80, image = photo)
+can1.grid()
+#kép vége
+
 '''
 #kilépés gomb
 kilep  = Button(ablak1, text='Kilépés')
