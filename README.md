@@ -1,1 +1,2 @@
-# ikt-tkinter-projekt 
+# IKT Tkinter Projekt 
+- ezt majd csinald meg kuli
