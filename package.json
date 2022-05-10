@@ -1,0 +1,28 @@
+{
+  "name": "ikt-tkinter-projekt",
+  "version": "1.0.0",
+  "description": "Tkinter projekt Foki Zoltán felügyeletével",
+  "main": "./src/main.py",
+  "scripts": {
+    "start": "cls && nodemon --watch src --ext py",
+    "build": "echo szia kuli"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WR0NGTH3HU4/ikt-tkinter-projekt.git"
+  },
+  "keywords": [
+    "tkinter",
+    "python",
+    "projekt"
+  ],
+  "author": "csandrisTurr, WR0NGTH3HU4",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WR0NGTH3HU4/ikt-tkinter-projekt/issues"
+  },
+  "homepage": "https://github.com/WR0NGTH3HU4/ikt-tkinter-projekt#readme",
+  "dependencies": {
+    "nodemon": "^2.0.16"
+  }
+}

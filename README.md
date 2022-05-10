@@ -1,2 +1,2 @@
-# ikt-tkinter-projekt 
-teszt
+# IKT Tkinter Projekt 
+- ezt majd csinald meg kuli
