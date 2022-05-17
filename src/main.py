@@ -13,15 +13,65 @@ ablak1 = Tk()
 ablak1.geometry("800x400")
 menubar = Menu(ablak1)
 #első gomb a menüsávon
-file = Menu(menubar, tearoff=0)  
-file.add_command(label="Háromszög")  
-file.add_command(label="Trapéz")  
-file.add_command(label="Paralelogramma")  
-file.add_command(label="Téglalap")  
-file.add_command(label="Deltoid")
-file.add_command(label="Rombusz") 
-file.add_command(label="Négyzet")
-file.add_command(label="Kör")      
+file = Menu(menubar, tearoff=0)
+
+#háromszög menü gomb kezdete
+haromszög = Menu(file, tearoff=0)
+haromszög.add_command(label="Kerület")
+haromszög.add_command(label="Terület")
+file.add_cascade(label='Háromszög', menu=haromszög)
+#háromszög menü gomb vége
+
+#trapéz menü gomb kezdete
+trapéz = Menu(file, tearoff=0)
+trapéz.add_command(label="Kerület")
+trapéz.add_command(label="Terület")
+file.add_cascade(label='Trapéz', menu=trapéz)
+#trapéz menü gomb kezdete
+
+#paralelogramma menü gomb kezdete
+Paralelogramma = Menu(file, tearoff=0)
+Paralelogramma.add_command(label="Kerület")
+Paralelogramma.add_command(label="Terület")
+file.add_cascade(label='Paralelogramma', menu=Paralelogramma)
+#paralelogramma menü gomb vége
+
+#téglalap menü gomb kezdete
+teglalap = Menu(file, tearoff=0)
+teglalap.add_command(label="Kerület")
+teglalap.add_command(label="Terület")
+file.add_cascade(label='Téglalap', menu=teglalap)
+#téglalap menü gomb kezdete
+
+#deltoid menü gomb kezdete
+deltoid = Menu(file, tearoff=0)
+deltoid.add_command(label="Kerület")
+deltoid.add_command(label="Terület")
+file.add_cascade(label='Deltoid', menu=deltoid)
+#deltoid menü gomb kezdete
+
+#rombusz menü gomb kezdete
+rombusz = Menu(file, tearoff=0)
+rombusz.add_command(label="Kerület")
+rombusz.add_command(label="Terület")
+file.add_cascade(label='Rombusz', menu=rombusz)
+#rombusz menü gomb kezdete
+
+#négyzet menü gomb kezdete
+negyzet = Menu(file, tearoff=0)
+negyzet.add_command(label="Kerület")
+negyzet.add_command(label="Terület")
+file.add_cascade(label='Négyzet', menu=negyzet)
+#négyzet menü gomb kezdete
+
+#kör menü gomb kezdete
+kor = Menu(file, tearoff=0)
+kor.add_command(label="Kerület")
+kor.add_command(label="Terület")
+file.add_cascade(label='Kör', menu=kor)
+#kör menü gomb kezdete
+
+
 file.add_separator()  
 file.add_command(label="Exit", command=ablak1.destroy)  
 menubar.add_cascade(label="Alakzatok", menu=file)  
@@ -37,7 +87,7 @@ l = Label(ablak1, text="Rövid használati útmutató: \n A menüsávon találha
 l.grid(row = 2,column = 1, pady = 90)
 #szöveg label vége
  
-#kép 
+#kép  
 can1 = Canvas(ablak1, width = 500, height = 400, bg = 'white')
 photo = PhotoImage(file = './src/a.png')
 item = can1.create_image(250, 200, image = photo)
