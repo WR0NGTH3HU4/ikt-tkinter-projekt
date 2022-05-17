@@ -26,24 +26,24 @@ file.add_separator()
 file.add_command(label="Exit", command=ablak1.destroy)  
 menubar.add_cascade(label="Alakzatok", menu=file)  
 #első gomb a menüsávon vége
-   
+
 #második gomb a menüsávon
 menubar.add_cascade(label="Névjegy", command = rolunk)
 ablak1.config(menu=menubar) 
 #második gomb a menüsávon vége
  
 #szöveg label 
-l = Label(ablak1, text="Rövid használati útmutató: \n A menüsávon található alakzatok gomb alatt kiválaszthatjuk a számítani kívánt alakzatot. Az alakzatra kattintva kiválaszthatjuk, hogy kerületet vagy területet szeretnénk számolni. A rólunk gombra nyomva a keszítőkről kaphat a felhasználó információkat.", wraplength=200)
-l.grid(row = 2,column = 0, pady = 90)
+l = Label(ablak1, text="Rövid használati útmutató: \n A menüsávon található alakzatok gomb alatt kiválaszthatjuk a számítani kívánt alakzatot. Az alakzatra kattintva kiválaszthatjuk, hogy kerületet vagy területet szeretnénk számolni. A rólunk gombra nyomva a keszítőkről kaphat a felhasználó információkat.", wraplength=200, font = ('Arial', 13))
+l.grid(row = 2,column = 1, pady = 90)
 #szöveg label vége
-
+ 
 #kép 
 can1 = Canvas(ablak1, width = 500, height = 400, bg = 'white')
 photo = PhotoImage(file = './src/a.png')
-item = can1.create_image(80, 80, image = photo)
-can1.grid(row = 2,column = 1, pady = 0, padx =50)
+item = can1.create_image(250, 200, image = photo)
+can1.grid(row = 2,column = 2, pady = 0, padx =50)
 #kép vége 
- 
+  
 '''
 #kilépés gomb
 kilep  = Button(ablak1, text='Kilépés')
