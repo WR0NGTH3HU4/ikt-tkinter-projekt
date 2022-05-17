@@ -22,6 +22,7 @@ class WindowHandler:
                 return window
         return None
 
+    # Elindítunk egy ablakot
     @staticmethod
     def run_window(id: str):
         window = WindowHandler.get_window(id)
