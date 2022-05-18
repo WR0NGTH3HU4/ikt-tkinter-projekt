@@ -28,7 +28,7 @@ trapéz = Menu(file, tearoff=0)
 trapéz.add_command(label="Kerület")
 trapéz.add_command(label="Terület")
 file.add_cascade(label='Trapéz', menu=trapéz)
-#trapéz menü gomb kezdete
+#trapéz menü gomb vége
 
 #paralelogramma menü gomb kezdete
 Paralelogramma = Menu(file, tearoff=0)
@@ -42,35 +42,35 @@ teglalap = Menu(file, tearoff=0)
 teglalap.add_command(label="Kerület")
 teglalap.add_command(label="Terület")
 file.add_cascade(label='Téglalap', menu=teglalap)
-#téglalap menü gomb kezdete
+#téglalap menü gomb vége
 
 #deltoid menü gomb kezdete
 deltoid = Menu(file, tearoff=0)
 deltoid.add_command(label="Kerület")
 deltoid.add_command(label="Terület")
 file.add_cascade(label='Deltoid', menu=deltoid)
-#deltoid menü gomb kezdete
+#deltoid menü gomb vége
 
 #rombusz menü gomb kezdete
 rombusz = Menu(file, tearoff=0)
 rombusz.add_command(label="Kerület")
 rombusz.add_command(label="Terület")
 file.add_cascade(label='Rombusz', menu=rombusz)
-#rombusz menü gomb kezdete
+#rombusz menü gomb vége
 
 #négyzet menü gomb kezdete
 negyzet = Menu(file, tearoff=0)
 negyzet.add_command(label="Kerület")
 negyzet.add_command(label="Terület")
 file.add_cascade(label='Négyzet', menu=negyzet)
-#négyzet menü gomb kezdete
+#négyzet menü gomb vége
 
 #kör menü gomb kezdete
 kor = Menu(file, tearoff=0)
 kor.add_command(label="Kerület")
 kor.add_command(label="Terület")
 file.add_cascade(label='Kör', menu=kor)
-#kör menü gomb kezdete
+#kör menü gomb vége
 
 
 file.add_separator()  
@@ -95,7 +95,7 @@ item = can1.create_image(250, 200, image = photo)
 can1.grid(row = 2,column = 2, pady = 0, padx =50)
 #kép vége 
     
-
+ 
 #kilépés gomb
 kilep  = Button(ablak1, text='Kilépés', command = ablak1.destroy)
 kilep.grid(row = 3, column = 4)
