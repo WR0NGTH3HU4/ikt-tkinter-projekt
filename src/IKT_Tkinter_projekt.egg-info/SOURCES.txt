@@ -1,7 +1,0 @@
-README.md
-pyproject.toml
-setup.cfg
-src/IKT_Tkinter_projekt.egg-info/PKG-INFO
-src/IKT_Tkinter_projekt.egg-info/SOURCES.txt
-src/IKT_Tkinter_projekt.egg-info/dependency_links.txt
-src/IKT_Tkinter_projekt.egg-info/top_level.txt

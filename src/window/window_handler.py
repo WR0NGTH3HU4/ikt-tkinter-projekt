@@ -1,4 +1,5 @@
 from Window import Window
+from .impl.Test import Test #ez nem szép ez nagyon nem
 
 class WindowHandler:
 
@@ -7,7 +8,7 @@ class WindowHandler:
     # direkt nem __init__()
     @staticmethod
     def init():
-        pass
+        WindowHandler.add_window(Test())
 
     # Window típusú objektumot tudunk hozzáadni a csomópont listájához
     @staticmethod
