@@ -2,11 +2,11 @@
 - By: Császár András, Kulimák Máté
 
 ## Főablak
-- Az ablak egy több gombos menüsorból, egy rövid ismertetővől valamint egy képből áll.
+- Az ablak egy több gombos menüsorból, egy rövid ismertetőből valamint egy képből áll.
 - A menüsoron található gombok segítségével al-oldalakra kerülhetünk át ahol tudunk egyes geometriai alakzatokkal számításokat végezni
 
 ## Projekt felépítése
-- a project felépítése rendezett, letisztult.
+- A projekt felépítése rendezett, letisztult.
 ```
 ├───IKT-TKINTER-PROJEKT
 │    └───node_modules
