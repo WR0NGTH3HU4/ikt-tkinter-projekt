@@ -8,10 +8,11 @@ def rolunk():
     uzenet2.pack()
     gomb2.pack()
     ablak2.mainloop()
-
-ablak1 = Tk()
+ 
+ablak1 = Tk() 
+ablak1.title('Főablak')
 ablak1.geometry("850x450")
-ablak1.resizable(False, False)
+ablak1.resizable(False, False) 
 menubar = Menu(ablak1)
 #első gomb a menüsávon
 file = Menu(menubar, tearoff=0)
