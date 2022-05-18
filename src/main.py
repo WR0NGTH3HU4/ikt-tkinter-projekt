@@ -10,7 +10,8 @@ def rolunk():
     ablak2.mainloop()
 
 ablak1 = Tk()
-ablak1.geometry("800x400")
+ablak1.geometry("850x450")
+ablak1.resizable(False, False)
 menubar = Menu(ablak1)
 #első gomb a menüsávon
 file = Menu(menubar, tearoff=0)
@@ -21,7 +22,7 @@ haromszög.add_command(label="Kerület")
 haromszög.add_command(label="Terület")
 file.add_cascade(label='Háromszög', menu=haromszög)
 #háromszög menü gomb vége
-
+ 
 #trapéz menü gomb kezdete
 trapéz = Menu(file, tearoff=0)
 trapéz.add_command(label="Kerület")
@@ -83,9 +84,9 @@ ablak1.config(menu=menubar)
 #második gomb a menüsávon vége
  
 #szöveg label 
-l = Label(ablak1, text="Rövid használati útmutató: \n A menüsávon található alakzatok gomb alatt kiválaszthatjuk a számítani kívánt alakzatot. Az alakzatra kattintva kiválaszthatjuk, hogy kerületet vagy területet szeretnénk számolni. A rólunk gombra nyomva a keszítőkről kaphat a felhasználó információkat.", wraplength=200, font = ('Arial', 13))
+l = Label(ablak1, text="Rövid használati útmutató: \n A menüsávon található alakzatok gomb alatt kiválaszthatjuk a számítani kívánt alakzatot. Az alakzatra kattintva kiválaszthatjuk, hogy kerületet vagy területet szeretnénk számolni. A rólunk gombra nyomva a keszítőkről kaphat a felhasználó információkat.", wraplength=200, font = ('Arial', 13,))
 l.grid(row = 2,column = 1, pady = 90)
-#szöveg label vége
+#szöveg label vége 
  
 #kép  
 can1 = Canvas(ablak1, width = 500, height = 400, bg = 'white')
@@ -93,12 +94,12 @@ photo = PhotoImage(file = './src/a.png')
 item = can1.create_image(250, 200, image = photo)
 can1.grid(row = 2,column = 2, pady = 0, padx =50)
 #kép vége 
-  
-'''
+    
+
 #kilépés gomb
-kilep  = Button(ablak1, text='Kilépés')
-kilep.grid(sticky = 's')
+kilep  = Button(ablak1, text='Kilépés', command = ablak1.destroy)
+kilep.grid(row = 3, column = 4)
 #kilépés gomb vége
-'''
+
 
 ablak1.mainloop()
