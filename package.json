@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/WR0NGTH3HU4/ikt-tkinter-projekt#readme",
   "dependencies": {
-    "nodemon": "^2.0.16"
+    "nodemon": "^2.0.16",
+    "start": "^5.1.0"
   }
 }
