@@ -1,4 +1,3 @@
-
 from tkinter import *
 
 def rolunk():
@@ -104,3 +103,4 @@ kilep.grid(row = 3, column = 4)
 
 
 ablak1.mainloop()
+=======
