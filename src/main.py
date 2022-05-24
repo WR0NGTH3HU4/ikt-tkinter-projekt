@@ -1,4 +1,17 @@
 from tkinter import *
+from teszt_ablak import teszt_ablak
+
+class Mode:
+    DEFAULT = None
+    KERULET = 0
+    TERULET = 1
+
+mode = Mode.DEFAULT
+
+def open_window(ablaknev):
+    if ablaknev == "teszt":
+        teszt_ablak(ablak1, ablaknev)
+
 
 def rolunk():
     ablak2 = Toplevel(ablak1)
@@ -7,7 +20,7 @@ def rolunk():
     uzenet2.pack()
     gomb2.pack()
     ablak2.mainloop()
- 
+
 ablak1 = Tk() 
 ablak1.title('Főablak')
 ablak1.geometry("850x450")
@@ -15,6 +28,13 @@ ablak1.resizable(False, False)
 menubar = Menu(ablak1)
 #első gomb a menüsávon
 file = Menu(menubar, tearoff=0)
+
+#teszt gomb
+teszt = Menu(file, tearoff=0)
+teszt.add_command(label="Kerület", command = lambda: open_window("teszt") )
+teszt.add_command(label="Terület")
+file.add_cascade(label='Teszt', menu=teszt)
+#teszt gomb
 
 #háromszög menü gomb kezdete
 haromszög = Menu(file, tearoff=0)
