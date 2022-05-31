@@ -53,10 +53,15 @@ class TesztAblak:
 
     def __init__(self, tk, mode: Mode) -> None:
 
+        # Config -{{
         self.POINTS = [0, 150, 75, 0, 150, 150]
+        self.title = "Teszt"
+        # }}
+
+
         self.mode = mode
         self.tl = Toplevel(tk)
-        self.tl.title("Teszt")
+        self.tl.title(self.title)
         self.geometry_frame = Frame(self.tl)
         self.field_frame = Frame(self.geometry_frame)
 
