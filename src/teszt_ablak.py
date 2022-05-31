@@ -4,7 +4,6 @@ from tkinter import messagebox
 from mode import Mode
 
 EREDMENY_TEXT = "Eredmeny: {}"
-POINTS = [0, 150, 75, 0, 150, 150]
 
 class TesztAblak:
 
@@ -54,6 +53,7 @@ class TesztAblak:
 
     def __init__(self, tk, mode: Mode) -> None:
 
+        self.POINTS = [0, 150, 75, 0, 150, 150]
         self.mode = mode
         self.tl = Toplevel(tk)
         self.tl.title("Teszt")
@@ -67,7 +67,7 @@ class TesztAblak:
         }
 
         self.canv = Canvas(self.geometry_frame, width = 150, height = 150)
-        self.canv.create_polygon(POINTS, fill = "white", outline = "black")
+        self.canv.create_polygon(self.POINTS, fill = "white", outline = "black")
 
         self.calc_button = Button(self.field_frame, text="Szamitas", command=self.calc)
         self.result_label = Label(self.tl, text = EREDMENY_TEXT.format(""))

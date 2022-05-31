@@ -4,7 +4,6 @@ from mode import Mode
 
 def open_window(ablaknev, mode: Mode):
     if ablaknev == "teszt":
-
         TesztAblak(ablak1, mode)
 
 
