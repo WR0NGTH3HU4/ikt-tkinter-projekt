@@ -4,16 +4,34 @@ from tkinter import messagebox
 from mode import Mode
 
 EREDMENY_TEXT = "Eredmeny: {}"
+POINTS = [0, 150, 75, 0, 150, 150]
 
-def teszt_ablak(tk, mode: Mode, nev):
+class TesztAblak:
 
-    def calc():
+    def place_all(self):
+        self.calc_button.grid(row = 3, column = 1, sticky=E)
 
-        # Error handling -{{
+        self.geometry_frame.grid(row = 0, column = 0)
+        self.field_frame.grid(row = 0, column = 0)
+        self.canv.grid(row = 0, column = 1, padx = 20, pady = 20)
+
+        self.result_label.grid(row = 1, column = 0, columnspan = 2, sticky=W)
+
+        self.tl.configure(padx = 10, pady = 10)
+
+        for i, vals in enumerate(self.fields.values()):
+            vals[0].grid(row = i, column = 0)
+
+        for i, vals in enumerate(self.fields.values()):
+            vals[1].grid(row = i, column = 1)
+
+
+    def calc(self):
+
         try:
-            a = int(a_entry.get())
-            b = int(b_entry.get())
-            c = int(c_entry.get())
+            a = int(self.fields["a"][1].get())
+            b = int(self.fields["b"][1].get())
+            c = int(self.fields["c"][1].get())
         except ValueError:
             messagebox.showerror("Hiba", "Számokat adj meg!")
             return
@@ -24,60 +42,35 @@ def teszt_ablak(tk, mode: Mode, nev):
         
         # Calculating -{{
         result = 0
-        if mode == Mode.KERULET:
+        if self.mode == Mode.KERULET:
             result = a + b + c
-        elif mode == Mode.TERULET:
+        elif self.mode == Mode.TERULET:
             result = a * b * c
         result = str(result)
 
         # }}
         
-        result_label.config(text=EREDMENY_TEXT.format(result))
+        self.result_label.config(text=EREDMENY_TEXT.format(result))
 
-    tl = Toplevel(tk)
-    tl.title(nev)
+    def __init__(self, tk, mode: Mode) -> None:
 
-    # bal oldal
-    
-    geometry_frame = Frame(tl)
-    field_frame = Frame(geometry_frame)
+        self.mode = mode
+        self.tl = Toplevel(tk)
+        self.tl.title("Teszt")
+        self.geometry_frame = Frame(self.tl)
+        self.field_frame = Frame(self.geometry_frame)
 
-    a_label = Label(field_frame, text = "A: ")
-    b_label = Label(field_frame, text = "B: ")
-    c_label = Label(field_frame, text = "C: ")
+        self.fields = {
+            "a": (Label(self.field_frame, text = "A: "), Entry(self.field_frame)),
+            "b": (Label(self.field_frame, text = "B: "), Entry(self.field_frame)),
+            "c": (Label(self.field_frame, text = "C: "), Entry(self.field_frame)),
+        }
 
-    a_entry = Entry(field_frame)
-    b_entry = Entry(field_frame)
-    c_entry = Entry(field_frame)
+        self.canv = Canvas(self.geometry_frame, width = 150, height = 150)
+        self.canv.create_polygon(POINTS, fill = "white", outline = "black")
 
-    calc_button = Button(field_frame, text="Szamitas", command=calc)
+        self.calc_button = Button(self.field_frame, text="Szamitas", command=self.calc)
+        self.result_label = Label(self.tl, text = EREDMENY_TEXT.format(""))
 
-    # jobb oldal
-
-    canv = Canvas(geometry_frame, width = 150, height = 150)
-    points = [0, 150, 75, 0, 150, 150]
-    canv.create_polygon(points, fill = "white", outline = "black")
-
-    # csak eredmeny
-
-    result_label = Label(tl, text = EREDMENY_TEXT.format(""))
-
-    # Placement
-    a_label.grid(row = 0, column = 0)
-    b_label.grid(row = 1, column = 0)
-    c_label.grid(row = 2, column = 0)
-
-    a_entry.grid(row = 0, column = 1)
-    b_entry.grid(row = 1, column = 1)
-    c_entry.grid(row = 2, column = 1)
-
-    calc_button.grid(row = 3, column = 1, sticky=E)
-
-    geometry_frame.grid(row = 0, column = 0)
-    field_frame.grid(row = 0, column = 0)
-    canv.grid(row = 0, column = 1, padx = 20, pady = 20)
-
-    result_label.grid(row = 1, column = 0, columnspan = 2, sticky=W)
-
-    tl.configure(padx = 10, pady = 10)
-    tl.mainloop()
+        self.place_all()
+        self.tl.mainloop()

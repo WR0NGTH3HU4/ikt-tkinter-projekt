@@ -1,10 +1,11 @@
 from tkinter import *
-from teszt_ablak import teszt_ablak
+from teszt_ablak import TesztAblak
 from mode import Mode
 
 def open_window(ablaknev, mode: Mode):
     if ablaknev == "teszt":
-        teszt_ablak(ablak1, mode, ablaknev)
+
+        TesztAblak(ablak1, mode)
 
 
 def rolunk():
