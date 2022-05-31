@@ -23,6 +23,9 @@ menubar = Menu(ablak1)
 #első gomb a menüsávon
 file = Menu(menubar, tearoff=0)
 
+# A gombokat sokkal konnyebben is meg lehetne oldani, majd dolgozunk rajta
+
+
 #teszt gomb
 teszt = Menu(file, tearoff=0)
 teszt.add_command(label="Kerület", command = lambda: open_window("teszt", Mode.KERULET) )
