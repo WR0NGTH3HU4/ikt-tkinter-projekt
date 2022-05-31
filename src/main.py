@@ -26,7 +26,7 @@ file = Menu(menubar, tearoff=0)
 #teszt gomb
 teszt = Menu(file, tearoff=0)
 teszt.add_command(label="Kerület", command = lambda: open_window("teszt", Mode.KERULET) )
-teszt.add_command(label="Terület")
+teszt.add_command(label="Terület", command = lambda: open_window("teszt", Mode.TERULET) )
 file.add_cascade(label='Teszt', menu=teszt)
 #teszt gomb
 
