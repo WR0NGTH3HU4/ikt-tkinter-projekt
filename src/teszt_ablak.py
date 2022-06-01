@@ -6,7 +6,7 @@ from Window import Window
 
 class TesztAblak(Window):
 
-    POINTS = [0, 0, 0, 150, 150, 150, 150, 0]
+    POINTS = [25, 25, 25, 150, 150, 150, 150, 25]
 
     def __init__(self, tk, mode: Mode):
         super().__init__(tk, mode)

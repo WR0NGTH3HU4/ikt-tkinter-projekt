@@ -84,6 +84,7 @@ class Window:
         self.mode = mode
         self.tl = Toplevel(tk)
         self.tl.title(self.title)
+        self.tl.resizable(False, False) 
         self.geometry_frame = Frame(self.tl)
         self.field_frame = Frame(self.geometry_frame)
 
