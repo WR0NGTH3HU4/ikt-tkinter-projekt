@@ -9,6 +9,11 @@ class Window:
     POINTS = [0, 150, 75, 0, 150, 150] # Default points
     title = "Window"
 
+    def get_field_value(self, key):
+        # This method is only used after checking if safe calculation is possible
+        return int(self.fields[key][1].get())
+
+
     def place_all(self):
         self.calc_button.grid(row = 3, column = 1, sticky=E)
 
