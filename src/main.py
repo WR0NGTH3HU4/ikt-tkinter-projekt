@@ -1,6 +1,7 @@
 from tkinter import *
 from teszt_ablak import TesztAblak
 from trapez_ablak import TrapezAblak
+from teglalap_ablak import TeglalapAblak
 from mode import Mode
 
 def open_window(ablaknev, mode: Mode):
@@ -8,6 +9,8 @@ def open_window(ablaknev, mode: Mode):
         TesztAblak(ablak1, mode)
     if ablaknev == "trapez":
         TrapezAblak(ablak1, mode)
+    if ablaknev == "teglalap":
+        TeglalapAblak(ablak1, mode)
 
 
 def rolunk():
@@ -59,8 +62,8 @@ file.add_cascade(label='Paralelogramma', menu=Paralelogramma)
 
 #téglalap menü gomb kezdete
 teglalap = Menu(file, tearoff=0)
-teglalap.add_command(label="Kerület")
-teglalap.add_command(label="Terület")
+teglalap.add_command(label="Kerület", command = lambda: open_window("teglalap", Mode.KERULET) )
+teglalap.add_command(label="Terület", command = lambda: open_window("teglalap", Mode.TERULET) )
 file.add_cascade(label='Téglalap', menu=teglalap)
 #téglalap menü gomb vége
 
