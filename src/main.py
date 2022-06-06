@@ -4,6 +4,7 @@ import string
 from teszt_ablak import TesztAblak
 from trapez_ablak import TrapezAblak
 from teglalap_ablak import TeglalapAblak
+from paralelogramma_ablak import ParalelogrammaAblak
 from mode import Mode
 
 sikidomok = {
@@ -25,6 +26,8 @@ def open_window(ablaknev, mode: Mode):
         TrapezAblak(root, mode)
     if ablaknev == "teglalap":
         TeglalapAblak(root, mode)
+    if ablaknev == "paralelogramma":
+        ParalelogrammaAblak(root, mode)
 
 
 def rolunk():
