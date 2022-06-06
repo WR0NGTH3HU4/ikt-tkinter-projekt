@@ -6,7 +6,7 @@ from Window import Window
 
 class TrapezAblak(Window):
 
-    POINTS = [25, 25, 25, 150, 150, 150, 150, 25]
+    POINTS = [50, 25, 25, 100, 150, 100, 125, 25]
 
     def __init__(self, tk, mode: Mode):
         super().__init__(tk, mode)
@@ -21,14 +21,26 @@ class TrapezAblak(Window):
         }
 
     def on_init_K(self):
-        self.disable_fields(["a"])
+        self.disable_fields(["m"])
+
+    def on_init_T(self):
+        self.disable_fields(["b", "d"])
 
     def calc_K(self):
-        if self.calc_is_error(["b"]): return
+        if self.calc_is_error(["a", "b", "c", "d"]): return
 
-        return 69
+        a = self.get_field_value("a")
+        b = self.get_field_value("b")
+        c = self.get_field_value("c")
+        d = self.get_field_value("d")
+
+        return a + b + c + d
 
     def calc_T(self):
-        if self.calc_is_error(["a", "b"]): return
+        if self.calc_is_error(["a", "c", "m"]): return
 
-        return 3452
+        a = self.get_field_value("a")
+        c = self.get_field_value("c")
+        m = self.get_field_value("m")
+
+        return ((a+c)/2)*m
