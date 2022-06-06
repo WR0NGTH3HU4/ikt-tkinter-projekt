@@ -4,7 +4,7 @@
   "description": "Tkinter projekt Foki Zoltán felügyeletével",
   "main": "./src/main.py",
   "scripts": {
-    "start": "cls && nodemon --watch src --ext py",
+    "start": "clear && nodemon --watch src --ext py",
     "build": "echo szia kuli"
   },
   "repository": {
