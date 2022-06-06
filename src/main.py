@@ -1,128 +1,81 @@
 from tkinter import *
+import random
+import string
 from teszt_ablak import TesztAblak
 from trapez_ablak import TrapezAblak
 from teglalap_ablak import TeglalapAblak
 from mode import Mode
 
+sikidomok = {
+    # Key          Display
+    "haromszog": "Háromszög",
+    "negyzet": "Négyzet",
+    "teglalap": "Téglalap",
+    "rombusz": "Rombusz",
+    "paralelogramma": "Paralelogramma",
+    "trapez": "Trapéz",
+    "deltoid": "Deltoid",
+    "kor": "Kör"
+}
+
 def open_window(ablaknev, mode: Mode):
     if ablaknev == "teszt":
-        TesztAblak(ablak1, mode)
+        TesztAblak(root, mode)
     if ablaknev == "trapez":
-        TrapezAblak(ablak1, mode)
+        TrapezAblak(root, mode)
     if ablaknev == "teglalap":
-        TeglalapAblak(ablak1, mode)
+        TeglalapAblak(root, mode)
 
 
 def rolunk():
-    ablak2 = Toplevel(ablak1)
+    ablak2 = Toplevel(root)
     uzenet2 = Message(ablak2, text = 'Készítette: Császár András és Kulimák Máté\nBaja\n2022.04.27', width = 300)
     gomb2 = Button(ablak2, text = 'Kilép', command = ablak2.destroy)
     uzenet2.pack()
     gomb2.pack()
     ablak2.mainloop()
 
-ablak1 = Tk() 
-ablak1.title('Főablak')
-ablak1.geometry("850x450")
-ablak1.resizable(False, False) 
-menubar = Menu(ablak1)
+root = Tk() 
+root.title('Főablak')
+root.geometry("850x450")
+root.resizable(False, False) 
+menubar = Menu(root)
 #első gomb a menüsávon
-file = Menu(menubar, tearoff=0)
+alakzatok_menu = Menu(menubar, tearoff=0)
 
 # A gombokat sokkal konnyebben is meg lehetne oldani, majd dolgozunk rajta
+# ez az a bizonyos "egyszerubb modszer":
+for sikidom in sikidomok:
+    a = ''.join(random.choice(string.ascii_letters) for i in range(10))
+    exec(f"""
+{a} = Menu(alakzatok_menu, tearoff=0)
+{a}.add_command(label="Kerület", command = lambda: open_window(sikidom, Mode.KERULET) )
+{a}.add_command(label="Terület", command = lambda: open_window(sikidom, Mode.TERULET) )
+alakzatok_menu.add_cascade(label=sikidomok[sikidom].capitalize(), menu={a})
+    """,
+    {"alakzatok_menu": alakzatok_menu, "sikidom": sikidom, "Menu": Menu, "sikidomok": sikidomok, "open_window": open_window, "Mode": Mode}
+)
+# Soha ne csinalj ilyet kerlek soha de soha
 
 
-#teszt gomb
-teszt = Menu(file, tearoff=0)
-teszt.add_command(label="Kerület", command = lambda: open_window("teszt", Mode.KERULET) )
-teszt.add_command(label="Terület", command = lambda: open_window("teszt", Mode.TERULET) )
-file.add_cascade(label='Teszt', menu=teszt)
-#teszt gomb
+alakzatok_menu.add_separator()  
 
-#háromszög menü gomb kezdete
-haromszög = Menu(file, tearoff=0)
-haromszög.add_command(label="Kerület")
-haromszög.add_command(label="Terület")
-file.add_cascade(label='Háromszög', menu=haromszög)
-#háromszög menü gomb vége
- 
-#trapéz menü gomb kezdete
-trapéz = Menu(file, tearoff=0)
-trapéz.add_command(label="Kerület", command = lambda: open_window("trapez", Mode.KERULET) )
-trapéz.add_command(label="Terület", command = lambda: open_window("trapez", Mode.TERULET) )
-file.add_cascade(label='Trapéz', menu=trapéz)
-#trapéz menü gomb vége
-
-#paralelogramma menü gomb kezdete
-Paralelogramma = Menu(file, tearoff=0)
-Paralelogramma.add_command(label="Kerület")
-Paralelogramma.add_command(label="Terület")
-file.add_cascade(label='Paralelogramma', menu=Paralelogramma)
-#paralelogramma menü gomb vége
-
-#téglalap menü gomb kezdete
-teglalap = Menu(file, tearoff=0)
-teglalap.add_command(label="Kerület", command = lambda: open_window("teglalap", Mode.KERULET) )
-teglalap.add_command(label="Terület", command = lambda: open_window("teglalap", Mode.TERULET) )
-file.add_cascade(label='Téglalap', menu=teglalap)
-#téglalap menü gomb vége
-
-#deltoid menü gomb kezdete
-deltoid = Menu(file, tearoff=0)
-deltoid.add_command(label="Kerület")
-deltoid.add_command(label="Terület")
-file.add_cascade(label='Deltoid', menu=deltoid)
-#deltoid menü gomb vége
-
-#rombusz menü gomb kezdete
-rombusz = Menu(file, tearoff=0)
-rombusz.add_command(label="Kerület")
-rombusz.add_command(label="Terület")
-file.add_cascade(label='Rombusz', menu=rombusz)
-#rombusz menü gomb vége
-
-#négyzet menü gomb kezdete
-negyzet = Menu(file, tearoff=0)
-negyzet.add_command(label="Kerület")
-negyzet.add_command(label="Terület")
-file.add_cascade(label='Négyzet', menu=negyzet)
-#négyzet menü gomb vége
-
-#kör menü gomb kezdete
-kor = Menu(file, tearoff=0)
-kor.add_command(label="Kerület")
-kor.add_command(label="Terület")
-file.add_cascade(label='Kör', menu=kor)
-#kör menü gomb vége
-
-
-file.add_separator()  
-file.add_command(label="Exit", command=ablak1.destroy)  
-menubar.add_cascade(label="Alakzatok", menu=file)  
-#első gomb a menüsávon vége
-
-#második gomb a menüsávon
-menubar.add_cascade(label="Névjegy", command = rolunk)
-ablak1.config(menu=menubar) 
-#második gomb a menüsávon vége
+menubar.add_cascade(label="Alakzatok", menu=alakzatok_menu)  
+menubar.add_command(label="Névjegy", command = rolunk)
+menubar.add_command(label="Kilépés", command=root.destroy)
+root.config(menu=menubar)
  
 #szöveg label 
-l = Label(ablak1, text="Rövid használati útmutató: \n A menüsávon található alakzatok gomb alatt kiválaszthatjuk a számítani kívánt alakzatot. Az alakzatra kattintva kiválaszthatjuk, hogy kerületet vagy területet szeretnénk számolni. A rólunk gombra nyomva a keszítőkről kaphat a felhasználó információkat.", wraplength=200, font = ('Arial', 13,))
+l = Label(root, text="Rövid használati útmutató: \n A menüsávon található alakzatok gomb alatt kiválaszthatjuk a számítani kívánt alakzatot. Az alakzatra kattintva kiválaszthatjuk, hogy kerületet vagy területet szeretnénk számolni. A rólunk gombra nyomva a keszítőkről kaphat a felhasználó információkat.", wraplength=200, font = ('Arial', 13,))
 l.grid(row = 2,column = 1, pady = 90)
 #szöveg label vége 
  
 #kép  
-can1 = Canvas(ablak1, width = 500, height = 400, bg = 'white')
+can1 = Canvas(root, width = 500, height = 400, bg = 'white')
 photo = PhotoImage(file = './src/a.png')
 item = can1.create_image(250, 200, image = photo)
 can1.grid(row = 2,column = 2, pady = 0, padx =50)
 #kép vége 
-    
- 
-#kilépés gomb
-kilep  = Button(ablak1, text='Kilépés', command = ablak1.destroy)
-kilep.grid(row = 3, column = 4)
-#kilépés gomb vége
 
 
-ablak1.mainloop()
+root.mainloop()
