@@ -15,7 +15,7 @@ class Window:
 
 
     def place_all(self):
-        self.calc_button.grid(row = 3, column = 1, sticky=E)
+        self.calc_button.grid(row = len(self.fields), column = 1, sticky=E)
 
         self.geometry_frame.grid(row = 0, column = 0)
         self.field_frame.grid(row = 0, column = 0)
@@ -31,6 +31,11 @@ class Window:
         for i, vals in enumerate(self.fields.values()):
             vals[1].grid(row = i, column = 1)
 
+    def on_init_K(self):
+        pass
+
+    def on_init_T(self):
+        pass
 
     def calc_K(self):
         raise NotImplementedError
@@ -38,11 +43,19 @@ class Window:
     def calc_T(self):
         raise NotImplementedError
 
-    def calc_is_error(self):
+    def disable_fields(self, fields: list):
+        for field in self.fields:
+            if field not in fields: continue
+
+            self.fields[field][1].config(state="disabled")
+
+    def calc_is_error(self, needed_fields: list):
         nums = []
 
         try:
             for key in self.fields:
+                if key not in needed_fields: continue
+
                 nums.append(int(self.fields[key][1].get()))
         except ValueError:
             messagebox.showerror("Hiba", "Számokat adj meg!")
@@ -56,9 +69,6 @@ class Window:
         return False
 
     def calc(self):
-
-        if self.calc_is_error():
-            return
         
         # Calculating -{{
         result = 0
@@ -97,4 +107,10 @@ class Window:
         self.result_label = Label(self.tl, text = self._EREDMENY_TEXT.format(""))
 
         self.place_all()
+        
+        if mode == Mode.KERULET:
+            self.on_init_K()
+        elif mode == Mode.TERULET:
+            self.on_init_T()
+
         self.tl.mainloop()
