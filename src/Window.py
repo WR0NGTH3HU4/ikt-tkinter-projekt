@@ -15,7 +15,7 @@ class Window:
 
 
     def place_all(self):
-        self.calc_button.grid(row = 3, column = 1, sticky=E)
+        self.calc_button.grid(row = len(self.fields), column = 1, sticky=E)
 
         self.geometry_frame.grid(row = 0, column = 0)
         self.field_frame.grid(row = 0, column = 0)
