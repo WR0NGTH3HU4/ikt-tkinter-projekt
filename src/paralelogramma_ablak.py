@@ -1,6 +1,5 @@
 from multiprocessing.pool import TERMINATE
 from tkinter import *
-from tkinter import messagebox
 from mode import Mode
 from Window import Window
 
