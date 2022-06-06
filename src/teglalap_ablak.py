@@ -9,6 +9,7 @@ class TeglalapAblak(Window):
     POINTS = [25, 25, 25, 100, 150, 100, 150, 25]
 
     def __init__(self, tk, mode: Mode):
+        self.title = f"Téglalap ({mode})"
         super().__init__(tk, mode)
         
     def define_fields(self):

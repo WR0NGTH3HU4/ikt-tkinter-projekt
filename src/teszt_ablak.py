@@ -9,6 +9,7 @@ class TesztAblak(Window):
     POINTS = [25, 25, 25, 150, 150, 150, 150, 25]
 
     def __init__(self, tk, mode: Mode):
+        self.title = f"Teszt ({mode})"
         super().__init__(tk, mode)
         
     def define_fields(self):

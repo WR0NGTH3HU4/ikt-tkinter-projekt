@@ -1,4 +1,4 @@
 class Mode:
     DEFAULT = None
-    KERULET = 0
-    TERULET = 1
+    KERULET = "Kerület"
+    TERULET = "Terület"

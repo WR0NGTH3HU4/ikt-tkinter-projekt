@@ -9,6 +9,7 @@ class TrapezAblak(Window):
     POINTS = [50, 25, 25, 100, 150, 100, 125, 25]
 
     def __init__(self, tk, mode: Mode):
+        self.title = f"Trapéz ({mode})"
         super().__init__(tk, mode)
         
     def define_fields(self):
