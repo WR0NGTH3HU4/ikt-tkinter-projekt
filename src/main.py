@@ -1,10 +1,13 @@
 from tkinter import *
 from teszt_ablak import TesztAblak
+from trapez_ablak import TrapezAblak
 from mode import Mode
 
 def open_window(ablaknev, mode: Mode):
     if ablaknev == "teszt":
         TesztAblak(ablak1, mode)
+    if ablaknev == "trapez":
+        TrapezAblak(ablak1, mode)
 
 
 def rolunk():
@@ -42,8 +45,8 @@ file.add_cascade(label='Háromszög', menu=haromszög)
  
 #trapéz menü gomb kezdete
 trapéz = Menu(file, tearoff=0)
-trapéz.add_command(label="Kerület")
-trapéz.add_command(label="Terület")
+trapéz.add_command(label="Kerület", command = lambda: open_window("trapez", Mode.KERULET) )
+trapéz.add_command(label="Terület", command = lambda: open_window("trapez", Mode.TERULET) )
 file.add_cascade(label='Trapéz', menu=trapéz)
 #trapéz menü gomb vége
 
