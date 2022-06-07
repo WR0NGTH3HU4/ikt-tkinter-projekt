@@ -3,6 +3,7 @@ import random
 import string
 from haromszog_ablak import HaromszogAblak
 from negyzet_ablak import NegyzetAblak
+from rombusz_ablak import RombuszAblak
 from teszt_ablak import TesztAblak
 from trapez_ablak import TrapezAblak
 from teglalap_ablak import TeglalapAblak
@@ -34,7 +35,10 @@ def open_window(ablaknev, mode: Mode):
         HaromszogAblak(root, mode)
     if ablaknev == "negyzet":
         NegyzetAblak(root, mode)
+    if ablaknev == "rombusz":
+        RombuszAblak(root, mode)
 
+ 
 
 def rolunk():
     ablak2 = Toplevel(root)
