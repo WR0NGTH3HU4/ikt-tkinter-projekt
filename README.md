@@ -15,10 +15,14 @@
 │    │   foablak.py
 │    │   Főoldal.png
 │    │   main.py
-│    │
-│    └───window
-│            Window.py
-│            window_handler.py
+│    │   mode.py
+│    │   negyzet_ablak.py
+│    │   paralelogramma_ablak.py
+│    │   rombusz_ablak.py   
+│    │   teglalap_ablak.py
+│    │   teszt_ablak.py
+│    │   trapez_ablak.py
+│    │   Window.py
 │    │   .gitignore
 |    |   package-lock.json
 |    |   package.json
