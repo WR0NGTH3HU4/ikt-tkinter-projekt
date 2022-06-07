@@ -2,6 +2,7 @@ from tkinter import *
 import random
 import string
 from haromszog_ablak import HaromszogAblak
+from kor_ablak import KorAblak
 from negyzet_ablak import NegyzetAblak
 from rombusz_ablak import RombuszAblak
 from teszt_ablak import TesztAblak
@@ -37,6 +38,8 @@ def open_window(ablaknev, mode: Mode):
         NegyzetAblak(root, mode)
     if ablaknev == "rombusz":
         RombuszAblak(root, mode)
+    if ablaknev == "kor":
+        KorAblak(root, mode)
 
  
 
