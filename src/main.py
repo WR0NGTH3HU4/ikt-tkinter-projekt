@@ -1,6 +1,10 @@
 from tkinter import *
 import random
 import string
+from haromszog_ablak import HaromszogAblak
+from kor_ablak import KorAblak
+from negyzet_ablak import NegyzetAblak
+from rombusz_ablak import RombuszAblak
 from teszt_ablak import TesztAblak
 from trapez_ablak import TrapezAblak
 from teglalap_ablak import TeglalapAblak
@@ -28,7 +32,16 @@ def open_window(ablaknev, mode: Mode):
         TeglalapAblak(root, mode)
     if ablaknev == "paralelogramma":
         ParalelogrammaAblak(root, mode)
+    if ablaknev == "haromszog":
+        HaromszogAblak(root, mode)
+    if ablaknev == "negyzet":
+        NegyzetAblak(root, mode)
+    if ablaknev == "rombusz":
+        RombuszAblak(root, mode)
+    if ablaknev == "kor":
+        KorAblak(root, mode)
 
+ 
 
 def rolunk():
     ablak2 = Toplevel(root)

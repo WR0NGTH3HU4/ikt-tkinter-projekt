@@ -76,7 +76,7 @@ class Window:
             result = self.calc_K()
         elif self.mode == Mode.TERULET:
             result = self.calc_T()
-        result = str(result)
+        result = str(round(result, 2))
 
         # }}
         
