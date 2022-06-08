@@ -38,6 +38,6 @@ class DeltoidAblak(Window):
         if self.calc_is_error(["e", "f"]): return
 
         a = self.get_field_value("e")
-        m = self.get_field_value("f")
+        f = self.get_field_value("f")
 
         return (e* f )/2
