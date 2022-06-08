@@ -1,6 +1,7 @@
 from tkinter import *
 import random
 import string
+from deltoid_ablak import DeltoidAblak
 from haromszog_ablak import HaromszogAblak
 from kor_ablak import KorAblak
 from negyzet_ablak import NegyzetAblak
@@ -40,6 +41,8 @@ def open_window(ablaknev, mode: Mode):
         RombuszAblak(root, mode)
     if ablaknev == "kor":
         KorAblak(root, mode)
+    if ablaknev == "deltoid":
+        DeltoidAblak(root, mode)
 
  
 
